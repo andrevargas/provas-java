@@ -1,0 +1,46 @@
+.content {
+    min-height: 600px;
+    margin: 30px 0px;
+}
+
+.content.index {
+    border-radius: 10px;
+}
+
+.content.index .acao {
+    width: 50%;
+    min-height: inherit;
+    text-align: center;
+}
+
+.content.index a .realizar, .content.index a .cadastrar {
+    color: #000;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 600px;
+    vertical-align: middle;
+}
+
+.content.index a .realizar {
+    background: #449d44;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: ease 0.2s;
+}
+
+.content.index a .cadastrar {
+    background: #337ab7;
+    color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: ease 0.2s;
+}
+
+.content.index a .realizar:hover {
+    background-color: #398439;
+}
+
+.content.index a .cadastrar:hover {
+    background-color: #204d74;
+}

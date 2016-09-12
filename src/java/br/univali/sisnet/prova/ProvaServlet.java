@@ -34,6 +34,9 @@ public class ProvaServlet extends HttpServlet {
                 redirecionar(req, res, "listaProvas.jsp");
                 break;
             case "visualizar":
+                Prova prova = provaCtrl.obterProvaPorId(Integer.parseInt(req.getParameter("id")));
+                req.setAttribute("prova", prova);
+                redirecionar(req, res, "detalheProva.jsp");
                 break;
             default:
                 break;
