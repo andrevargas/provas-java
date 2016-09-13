@@ -49,14 +49,6 @@ public class QuestaoDAO extends GerenciadorBanco {
 
         } catch (SQLException ex) {
             Logger.getLogger(ProvaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-
-            try {
-                fecharConexao();
-            } catch (SQLException ex) {
-                Logger.getLogger(QuestaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
         }
 
     }

@@ -5,7 +5,6 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -27,7 +26,7 @@
                         <div class="col-md-4 col-md-offset-4 text-center">
                             <h3>Nota</h3>
                             <span class="valorNota text-primary">
-                                <fmt:formatNumber pattern="#,#" value="${correcao.nota}" />
+                                ${correcao.nota}
                             </span>
                         </div>
                         <div class="clearfix"></div>

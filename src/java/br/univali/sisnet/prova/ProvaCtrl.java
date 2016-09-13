@@ -27,7 +27,7 @@ public class ProvaCtrl {
 
         QuestaoCtrl questaoCtrl = new QuestaoCtrl();
         ArrayList<Questao> questoes = questaoCtrl.obterQuestoesPorProva(idProva);
-       
+
         prova.setQuestoes(questoes);
 
         return prova;

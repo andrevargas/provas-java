@@ -37,7 +37,7 @@
                                             <c:forEach items="${questao.alternativas}" var="alternativa" varStatus="alternativaLoop">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="respostaQuestao${questaoLoop.index + 1}" value="${alternativaLoop.index}" />
+                                                        <input type="radio" name="respostaQuestao${questaoLoop.index + 1}" value="${alternativaLoop.index}" required />
                                                         ${letras[alternativaLoop.index]}) ${alternativa}
                                                     </label>
                                                 </div>

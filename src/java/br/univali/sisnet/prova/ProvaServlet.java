@@ -23,17 +23,17 @@ public class ProvaServlet extends HttpServlet {
 
         switch (req.getParameter("acao")) {
             case "cadastrar":
-                redirecionar(req, res, "cadastroProva.jsp?acao='cadastrar'");
+                redirecionar(req, res, "cadastroProva.jsp");
                 break;
             case "salvarCadastro":
                 provaCtrl.salvarProva(req);
-                redirecionar(req, res, "listaProvas.jsp?acao='listar'");
+                res.sendRedirect("prova?acao=listar");
                 break;
             case "realizar":
                 if (!req.getParameter("id").equals("")) {
                     Prova prova = provaCtrl.obterProvaPorId(Integer.parseInt(req.getParameter("id")));
                     req.setAttribute("prova", prova);
-                    redirecionar(req, res, "realizacaoProva.jsp?acao='realizar'");
+                    redirecionar(req, res, "realizacaoProva.jsp");
                 } else {
                     redirecionar(req, res, "index.jsp");
                 }
@@ -48,7 +48,7 @@ public class ProvaServlet extends HttpServlet {
                 break;
             case "listar":
                 req.setAttribute("provas", provaCtrl.obterProvas());
-                redirecionar(req, res, "listaProvas.jsp?acao='listar'");
+                redirecionar(req, res, "listaProvas.jsp");
                 break;
             default:
                 break;
