@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/prova")
 public class ProvaServlet extends HttpServlet {
 
-    @Override
+   @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         verificarRequisicao(req, res);
     }
@@ -23,19 +23,32 @@ public class ProvaServlet extends HttpServlet {
 
         switch (req.getParameter("acao")) {
             case "cadastrar":
-                redirecionar(req, res, "cadastroProva.jsp");
+                redirecionar(req, res, "cadastroProva.jsp?acao='cadastrar'");
                 break;
             case "salvarCadastro":
                 provaCtrl.salvarProva(req);
-                redirecionar(req, res, "listaProvas.jsp");
+                redirecionar(req, res, "listaProvas.jsp?acao='listar'");
                 break;
             case "realizar":
+                if (!req.getParameter("id").equals("")) {
+                    Prova prova = provaCtrl.obterProvaPorId(Integer.parseInt(req.getParameter("id")));
+                    req.setAttribute("prova", prova);
+                    redirecionar(req, res, "realizacaoProva.jsp?acao='realizar'");
+                } else {
+                    redirecionar(req, res, "index.jsp");
+                }
                 break;
-            case "salvarRealizacao":
+            case "enviarRealizacao":
+                if (!req.getParameter("idProva").equals("")) {
+                    req.setAttribute("correcao", provaCtrl.realizarProva(req));
+                    redirecionar(req, res, "detalheCorrecao.jsp");
+                } else {
+                    redirecionar(req, res, "index.jsp");
+                }
                 break;
             case "listar":
                 req.setAttribute("provas", provaCtrl.obterProvas());
-                redirecionar(req, res, "listaProvas.jsp");
+                redirecionar(req, res, "listaProvas.jsp?acao='listar'");
                 break;
             default:
                 break;

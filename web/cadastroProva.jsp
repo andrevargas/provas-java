@@ -31,7 +31,7 @@
                             <hr />
                             <h3>Questões</h3>
                             <c:set var="letras" value="${['a', 'b', 'c', 'd', 'e']}" scope="application"></c:set>
-                            <c:forEach begin="1" end="1" varStatus="questaoLoop">
+                            <c:forEach begin="1" end="5" varStatus="questaoLoop">
                                 <div class="well well-lg">
                                     <h4>Questão #${questaoLoop.index}</h4>
                                     <div class="form-group row">

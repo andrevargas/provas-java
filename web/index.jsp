@@ -26,7 +26,7 @@
                                 Cadastrar
                             </div>
                         </a>
-                        <a href="prova?acao=realizar">
+                        <a href="prova?acao=listar">
                             <div class="pull-right acao realizar">
                                 Realizar
                             </div>

@@ -7,6 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="col-md-10 col-md-offset-1">
     <div class="header">
-        <h1 class="text-center">Sistema aleatório</h1>
+        <h1 class="text-center">Sistema de Provas</h1>
     </div>
 </div>

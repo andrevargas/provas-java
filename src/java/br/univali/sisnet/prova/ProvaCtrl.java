@@ -1,6 +1,8 @@
 
 package br.univali.sisnet.prova;
 
+import br.univali.sisnet.correcao.Correcao;
+import br.univali.sisnet.correcao.CorrecaoCtrl;
 import br.univali.sisnet.questao.Questao;
 import br.univali.sisnet.questao.QuestaoCtrl;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class ProvaCtrl {
 
         QuestaoCtrl questaoCtrl = new QuestaoCtrl();
         ArrayList<Questao> questoes = questaoCtrl.obterQuestoesPorProva(idProva);
-
+       
         prova.setQuestoes(questoes);
 
         return prova;
@@ -45,12 +47,12 @@ public class ProvaCtrl {
 
     }
 
-    public Prova atribuirValores(HttpServletRequest req) {
+    private Prova atribuirValores(HttpServletRequest req) {
 
         Prova prova = new Prova();
         prova.setNome(req.getParameter("nome"));
 
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 5; i++) {
 
             Questao questao = new Questao();
             questao.setEnunciado(req.getParameter("enunciadoQuestao" + i));
@@ -66,6 +68,17 @@ public class ProvaCtrl {
         }
 
         return prova;
+    }
+
+    public Correcao realizarProva(HttpServletRequest req) {
+
+        Prova prova = obterProvaPorId(Integer.parseInt(req.getParameter("idProva")));
+
+        CorrecaoCtrl correcaoCtrl = new CorrecaoCtrl();
+        Correcao correcao = correcaoCtrl.obterCorrecao(prova, req);
+
+        return correcao;
+
     }
 
 }

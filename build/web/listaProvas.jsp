@@ -37,7 +37,7 @@
                                         <td>${prova.id}</td>
                                         <td>${prova.nome}</td>
                                         <td>
-                                            <a href="provas?acao=realizar&id=${prova.id}" class="btn btn-primary btn-xs">Realizar</a>
+                                            <a href="prova?acao=realizar&id=${prova.id}" class="btn btn-primary btn-sm">Realizar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

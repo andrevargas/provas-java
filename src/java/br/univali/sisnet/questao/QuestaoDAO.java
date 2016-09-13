@@ -89,12 +89,12 @@ public class QuestaoDAO extends GerenciadorBanco {
                 alternativas.add(resultado.getString("alternativa_5"));
 
                 questao.setAlternativas(alternativas);
+                questoes.add(questao);
 
             }
 
             ps.close();
             resultado.close();
-
             return questoes;
 
         } catch (SQLException ex) {
