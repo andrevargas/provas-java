@@ -36,7 +36,7 @@
                 <%@include file="footer.jsp" %>
             </div>
         </div>
-        <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/libs/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>

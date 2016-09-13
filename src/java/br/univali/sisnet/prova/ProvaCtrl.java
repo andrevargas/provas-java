@@ -35,12 +35,12 @@ public class ProvaCtrl {
     public void salvarProva(HttpServletRequest req) {
 
         Prova prova = atribuirValores(req);
-        dao.salvarProva(prova);
+        long idProva = dao.salvarProva(prova);
 
         QuestaoCtrl questaoCtrl = new QuestaoCtrl();
 
         for (Questao questao: prova.getQuestoes()) {
-            questaoCtrl.salvarQuestao(prova.getId(), questao);
+            questaoCtrl.salvarQuestao(idProva, questao);
         }
 
     }
@@ -50,7 +50,7 @@ public class ProvaCtrl {
         Prova prova = new Prova();
         prova.setNome(req.getParameter("nome"));
 
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 1; i++) {
 
             Questao questao = new Questao();
             questao.setEnunciado(req.getParameter("enunciadoQuestao" + i));
@@ -59,6 +59,8 @@ public class ProvaCtrl {
                 String alternativa = req.getParameter("alternativa" + j + "Questao" + i);
                 questao.addAlternativa(alternativa);
             }
+
+            questao.setAlternativaCorreta(Integer.parseInt(req.getParameter("alternativaCorretaQuestao" + i)));
 
             prova.addQuestao(questao);
         }

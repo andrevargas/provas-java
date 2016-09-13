@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class QuestaoDAO extends GerenciadorBanco {
 
-    public void salvarQuestao(int idProva, Questao questao) {
+    public void salvarQuestao(long idProva, Questao questao) {
 
         String sql = "INSERT INTO questao ("
                 + "id_prova, "
@@ -30,13 +30,13 @@ public class QuestaoDAO extends GerenciadorBanco {
                 + "alternativa_2, "
                 + "alternativa_3, "
                 + "alternativa_4, "
-                + "alternativa_5, "
+                + "alternativa_5 "
                 + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
             PreparedStatement ps = obterConexao().prepareStatement(sql);
-            ps.setInt(1, idProva);
+            ps.setLong(1, idProva);
             ps.setString(2, questao.getEnunciado());
             ps.setInt(3, questao.getAlternativaCorreta());
 

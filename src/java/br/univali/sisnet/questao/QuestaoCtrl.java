@@ -13,7 +13,7 @@ public class QuestaoCtrl {
         dao = new QuestaoDAO();
     }
 
-    public void salvarQuestao(int idProva, Questao questao) {
+    public void salvarQuestao(long idProva, Questao questao) {
         dao.salvarQuestao(idProva, questao);
     }
 

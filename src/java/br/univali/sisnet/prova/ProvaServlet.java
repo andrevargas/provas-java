@@ -22,21 +22,20 @@ public class ProvaServlet extends HttpServlet {
         ProvaCtrl provaCtrl = new ProvaCtrl();
 
         switch (req.getParameter("acao")) {
-
             case "cadastrar":
+                redirecionar(req, res, "cadastroProva.jsp");
+                break;
+            case "salvarCadastro":
                 provaCtrl.salvarProva(req);
-                redirecionar(req, res, "detalheProva.jsp");
+                redirecionar(req, res, "listaProvas.jsp");
                 break;
             case "realizar":
+                break;
+            case "salvarRealizacao":
                 break;
             case "listar":
                 req.setAttribute("provas", provaCtrl.obterProvas());
                 redirecionar(req, res, "listaProvas.jsp");
-                break;
-            case "visualizar":
-                Prova prova = provaCtrl.obterProvaPorId(Integer.parseInt(req.getParameter("id")));
-                req.setAttribute("prova", prova);
-                redirecionar(req, res, "detalheProva.jsp");
                 break;
             default:
                 break;

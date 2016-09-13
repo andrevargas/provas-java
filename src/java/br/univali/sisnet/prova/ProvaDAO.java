@@ -5,6 +5,7 @@ import br.univali.sisnet.banco.GerenciadorBanco;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,15 +13,21 @@ import java.util.logging.Logger;
 
 public class ProvaDAO extends GerenciadorBanco {
 
-    public void salvarProva(Prova prova) {
+    public long salvarProva(Prova prova) {
 
         String sql = "INSERT INTO prova (nome) VALUES (?);";
 
         try {
 
-            PreparedStatement ps = obterConexao().prepareStatement(sql);
+            PreparedStatement ps = obterConexao().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, prova.getNome());
             ps.executeUpdate();
+
+            ResultSet resultado = ps.getGeneratedKeys();
+
+            if (resultado.next()) {
+                return resultado.getLong(1);
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(ProvaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -33,6 +40,8 @@ public class ProvaDAO extends GerenciadorBanco {
             }
 
         }
+
+        return 0;
 
     }
 
